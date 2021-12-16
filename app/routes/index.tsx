@@ -4,12 +4,9 @@ import { useLoaderData, json, Link } from "remix";
 type IndexData = {
   resources: Array<{ name: string; url: string }>;
   demos: Array<{ name: string; to: string }>;
+  cases: Array<{ name: string; to: string }>;
 };
 
-// Loaders provide data to components and are only ever called on the server, so
-// you can connect to a database or run any server side code you want right next
-// to the component that renders it.
-// https://remix.run/api/conventions#loader
 export let loader: LoaderFunction = () => {
   let data: IndexData = {
     resources: [
@@ -39,6 +36,12 @@ export let loader: LoaderFunction = () => {
         to: "demos/params",
         name: "URL Params and Error Boundaries"
       }
+    ],
+    cases: [
+      {
+        to: "cases/actions",
+        name: "Actions"
+      },
     ]
   };
 
