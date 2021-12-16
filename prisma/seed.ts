@@ -4,7 +4,7 @@ const db = new PrismaClient();
 async function seed() {
   await Promise.all(
     getLeads().map(lead => {
-      return db.joke.create({ data: lead });
+      return db.lead.create({ data: lead });
     })
   );
 }
